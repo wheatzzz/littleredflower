@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Little Red Flower Club</title>
+  <link rel="stylesheet" href="css/portal.css">
+</head>
+<body data-state="idle">
+
+  <!-- DOORS: the waiting screen. Panels part when the petal clicks in. -->
+  <div class="doors">
+    <div class="panel panel-left"></div>
+    <div class="panel panel-right"></div>
+    <main class="gate">
+      <canvas id="flower-canvas"></canvas>
+      <div class="fallback" aria-hidden="true">
+        <img class="fallback-flower" src="img/flower-gap.png" alt="">
+        <img class="fallback-petal" src="img/petal-loose.png" alt="">
+      </div>
+      <div class="words"><p class="line" id="idle-line" aria-live="polite"></p></div>
+    </main>
+  </div>
+
+  <!-- BEHIND THE DOORS: the club site (replace with your Figma design) -->
+  <section class="site">
+    <div class="welcome">
+      <p class="welcome-to">Welcome to</p>
+      <img class="site-logo" src="img/logo-main.png" alt="The Little Red Flower Club">
+    </div>
+    <p class="site-note">The main site will live here.</p>
+  </section>
+
+  <button class="connect" id="connect-button" type="button">Connect the flower</button>
+  <div class="debug" id="debug-box">debug: waiting…</div>
+
+  <script src="js/portal-config.js"></script>
+  <script src="lib/three.min.js"></script>
+  <script src="data/flower-model.js"></script>
+  <script src="js/portal-flower.js"></script>
+  <script src="js/portal-gate.js"></script>
+</body>
+</html>

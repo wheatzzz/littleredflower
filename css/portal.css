@@ -1,0 +1,71 @@
+@font-face {
+  font-family: "LittleRed";
+  src: url("../fonts/little-red-flower.ttf") format("truetype");
+  font-display: swap;
+}
+:root {
+  --red: #d33027; --ink: #231f20; --paper: #f9edea;
+  --sense: 4000ms; --door: 2600ms;      /* set from js/portal-config.js */
+}
+* { box-sizing: border-box; margin: 0; }
+html { height: 100%; }
+body { min-height: 100%; background: var(--paper); color: var(--ink);
+       font-family: "LittleRed", "Comic Sans MS", cursive; }
+
+/* ---------- doors ---------- */
+.doors { position: fixed; inset: 0; z-index: 10; overflow: hidden; pointer-events: none; }
+.panel { position: absolute; top: 0; bottom: 0; width: 50.2%; background: var(--paper);
+         transition: transform var(--door) cubic-bezier(.65, 0, .25, 1); }
+.panel-left { left: 0; } .panel-right { right: 0; }
+body[data-state="opening"] .panel-left, body[data-state="open"] .panel-left { transform: translateX(-100%); }
+body[data-state="opening"] .panel-right, body[data-state="open"] .panel-right { transform: translateX(100%); }
+body[data-state="open"] .doors { visibility: hidden; }
+.gate { position: absolute; inset: 0; }
+
+/* ---------- 3D flower, and the flat fallback if WebGL is missing ---------- */
+#flower-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: none; }
+body.webgl #flower-canvas { display: block; }
+body.webgl .fallback { display: none; }
+.fallback { position: absolute; left: 50%; top: 45%; width: min(68vw, 54vh); aspect-ratio: 563 / 534;
+  transform: translate(-50%, -50%) scale(.58);
+  transition: transform var(--sense) cubic-bezier(.45, 0, .25, 1); }
+body:not([data-state="idle"]) .fallback { transform: translate(-50%, -50%) scale(1.12); }
+.fallback img { position: absolute; display: block; user-select: none; }
+.fallback-flower { inset: 0; width: 100%; height: 100%; z-index: 2;
+  transition: translate var(--door) cubic-bezier(.65, 0, .25, 1); }
+.fallback-petal { z-index: 1; width: 38.23%; left: 50.2%; top: 61%;
+  transform: translate(54%, 44%) rotate(-13deg);
+  transition: transform calc(var(--sense) - 400ms) cubic-bezier(.45, 0, .2, 1) 400ms,
+              translate var(--door) cubic-bezier(.65, 0, .25, 1); }
+body:not([data-state="idle"]) .fallback-petal { transform: translate(0, 0) rotate(-13deg); }
+body[data-state="opening"] .fallback-flower, body[data-state="open"] .fallback-flower { translate: -110vw 0; }
+body[data-state="opening"] .fallback-petal, body[data-state="open"] .fallback-petal { translate: 110vw 0; }
+
+/* ---------- guide words, pinned just above the Connect button ---------- */
+.words { position: absolute; left: 50%; bottom: 4.6rem; transform: translateX(-50%);
+         width: min(90vw, 44rem); text-align: center; }
+.line { font-size: clamp(1.4rem, 3.4vw + .4rem, 2.5rem); line-height: 1.2; opacity: 0; transition: opacity .9s ease; }
+.line.show { opacity: 1; }
+body:not([data-state="idle"]) .line { opacity: 0; transition-duration: .6s; }
+
+/* ---------- the club site behind the doors ---------- */
+.site { min-height: 100vh; display: flex; flex-direction: column; align-items: center;
+        justify-content: center; gap: 2rem; padding: 3rem 1.25rem; text-align: center; }
+body:not([data-state="open"]) .site { height: 100vh; overflow: hidden; }
+.welcome { display: flex; flex-direction: column; align-items: center; gap: .6rem; opacity: 0; }
+.welcome-to { font-size: clamp(2rem, 6vw, 4rem); color: var(--red); }
+.site-logo { width: min(86vw, 46rem); height: auto; }
+.site-note { font-size: 1.4rem; opacity: .6; }
+body[data-state="opening"] .welcome { animation: rise 1.6s ease 1.2s both; }
+body[data-state="open"] .welcome { opacity: 1; }
+@keyframes rise { from { opacity: 0; transform: translateY(1rem); } to { opacity: 1; transform: none; } }
+
+/* ---------- connect button and debug box (press D) ---------- */
+.connect { position: fixed; right: 1rem; bottom: 1rem; z-index: 30; font: inherit; font-size: 1.1rem;
+  color: var(--ink); background: transparent; border: 2px solid var(--ink); border-radius: 999px;
+  padding: .3rem 1rem; cursor: pointer; opacity: .35; }
+.connect:hover, .connect:focus-visible { opacity: 1; }
+.connect.connected { display: none; }
+.debug { position: fixed; left: 1rem; bottom: 1rem; z-index: 40; font: 14px/1.3 monospace; color: #fff;
+  background: rgba(35, 31, 32, .85); padding: .4rem .7rem; border-radius: 8px; display: none; max-width: 70vw; }
+.debug.on { display: block; }
