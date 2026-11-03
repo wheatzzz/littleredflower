@@ -138,7 +138,7 @@ body:not([data-state="open"]) #app{height:100vh;overflow:hidden}
 .npop,.ppop{--u:calc(100cqw/1140)}
 .ppop{width:min(1300px,94vw,120vh);aspect-ratio:1140/900}
 /* the memo post grows with its replies: no inner scrolling */
-.npop{--W:min(1300px,94vw,118vh);width:var(--W);padding:calc(var(--W)*188/1140) 0 calc(var(--W)*90/1140)}
+.npop{--W:min(1140px,94vw,86vh);   /* a post with 3 replies + the reply box fits on one screen */width:var(--W);padding:calc(var(--W)*188/1140) 0 calc(var(--W)*90/1140)}
 .pop .nfr,.pop .pfr{inset:0;width:100%;height:100%}
 .np-title,.ptitle{left:calc(140*var(--u));top:calc(98*var(--u))}
 .ptitle{width:calc(370*var(--u))}

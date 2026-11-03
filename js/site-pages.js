@@ -144,11 +144,11 @@
       { by: "Petal 1:", text: "YESSSS. I was obsessed with loom bands. I used to spend all my free time making them. So sad that now I just doom scroll on tiktok instead..." },
       { by: "Flower (OP):", ind: 83, w: 590, text: "Me tooo. I was cleaning out my storage room and found a bunch made like 10 years ago. Are you coming to the slime event? Lets share bracelets!" },
       { by: "Petal 1:", ind: 150, w: 520, text: "I am :) I'll see id i can find my collection as well!" } ] },
-    { id: "s2", t: "C", seed: true, text: "I want to join the redo & Replay event on the 23rd but it's my first time. Is there anything I need to do beforehand?", replies: [
+    { id: "s2", t: "C", seed: true, text: "I want to join the Redo & Replay event on the 23rd but it's my first time. Is there anything I need to do beforehand?", replies: [
       { by: "Petal 1:", text: "The events are very chill :) You can bring yourself or a friend as all events are free!" },
       { by: "Petal 2:", text: "I am going to the event as well. I you would like we can meet up and grab a coffee before the event" },
       { by: "Flower (OP):", ind: 84, arrow: true, text: "That would be much help :))) I'm just a bit nervous to go straight in alone" } ] },
-    { id: "s3", t: "B", seed: true, text: "How does everyone manage their pre-exam anxiety? I always tell myself that it isn't a bit deal but I still stress over it :(", replies: [
+    { id: "s3", t: "B", seed: true, text: "How does everyone manage their pre-exam anxiety? I always tell myself that it isn't a big deal but I still stress over it :(", replies: [
       { by: "Petal 1:", text: "I also had pre-exam anxiety back when I was a student. But looking back at it now, I do realise the more stress I have, often the more prepared I am. So do not treat stress as some sort of demon." },
       { by: "Petal 2:", ind: 101, arrow: true, text: "I agree. But if turning your viewpoint is too hard, please try and give yourself a break, go in the sun a give yourself a sweet treat :)))" },
       { by: "Flower (OP):", ind: 98, arrow: true, text: "Thank you! I never though about it that way. I'll try!" } ] }
