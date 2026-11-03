@@ -34,8 +34,7 @@
   // NFC sticker link: opening the site with ?petal=... (e.g. https://wheatzzz.github.io/littleredflower/?petal=1)
   // The sticker IS the portal: no waiting, no hint, no skip/connect buttons. The animation starts as soon as the page loads.
   if (new URLSearchParams(location.search).has("petal")) {
-    body.classList.add("via-nfc");
-    requestAnimationFrame(() => setTimeout(() => petalPlaced(C.petalId || ""), C.nfcDelayMs ?? 0));
+    requestAnimationFrame(() => setTimeout(() => petalPlaced(C.petalId || ""), C.nfcDelayMs ?? 2500));   // short pause on the flower before the petal flies in
   }
 
   async function listen(port) {
