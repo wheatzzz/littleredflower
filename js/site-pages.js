@@ -164,7 +164,7 @@
 
   /* one thread = the post's built-in replies + visitor comments. A reply to a comment sits under it with the ↳ arrow. */
   function threadFor(p) {
-    const list = (p.replies || []).map((r, i) => ({ ...r, id: `${p.id}-r${i}`, depth: r.ind ? (r.ind > 120 ? 2 : 1) : 0 }));
+    const list = (p.replies || []).map((r, i) => ({ ...r, arrow: !!r.ind, id: `${p.id}-r${i}`, depth: r.ind ? (r.ind > 120 ? 2 : 1) : 0 }));   // every indented reply gets the ↳ arrow
     (comments[p.id] || []).slice().sort((a, b) => a.ts - b.ts).forEach(c => {
       const item = { ...c, depth: 0, mine: true };
       let at = list.length; const pi = c.parent ? list.findIndex(x => x.id === c.parent) : -1;

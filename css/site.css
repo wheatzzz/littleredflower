@@ -269,19 +269,18 @@ body[data-state="open"] .skip{display:none}
 /* ---------- mobile / tablet ---------- */
 @media (max-width:899px){
   :root{--fit:100vw}
-  .stage{aspect-ratio:auto;display:flex;flex-direction:column;align-items:center;gap:7vw;padding:8vw 3vw}
+  .stage{aspect-ratio:auto;display:flex;flex-direction:column;align-items:center;gap:6vw;padding:7vw 4vw}
   .cl{position:relative;left:auto;top:auto;width:calc(var(--mw,88)*1vw);order:var(--mo,0)}
   .mbox,.who,.what,.bub,.rules{aspect-ratio:auto!important}
   .mbox .tx,.who .tx,.what .tx,.bub .tx,.rules .tx{position:relative!important;left:auto!important;top:auto!important;width:auto!important;z-index:1;font-size:clamp(16px,4.4vw,26px)!important;padding:0 7%}
   .mbox .tx{padding:7% 8%}.who .tx{padding:7% 9%}.what .tx{padding:0 6%}.what .tx.lr{font-size:clamp(26px,7vw,42px)!important;padding-top:7%}.what .tx:last-child{padding-bottom:7%}.what .tx.lr{margin-bottom:.5em}
-  .bub .tx{padding:11% 8% 11% 17%}.rules .tx{padding:6% 6%}.rules .tx.lr{font-size:clamp(22px,6vw,34px)!important;padding-bottom:0}
+  .bub .tx{padding:13% 11% 13% 24%}.rules .tx{padding:6% 6%}.rules .tx.lr{font-size:clamp(22px,6vw,34px)!important;padding-bottom:0}
   .mbox .bg[style],.who .bg[style]{left:0!important;top:0!important;width:100%!important;height:100%!important}
   .bub .inner{left:3.5%!important;top:4%!important;width:93%!important;height:92%!important}
   .cl.well,.cl.mas,.cl.mai,.cl.flag{margin:0 auto}
   .ftr{min-height:0;padding-bottom:20px}.ftr-main{grid-template-columns:1fr}.join label{width:100%}.ftr-small{position:static;margin-top:28px}
-  .stage.events{overflow-x:auto;align-items:flex-start;-webkit-overflow-scrolling:touch}
-  .stage.events .cl.cal{width:max(98vw,640px);flex:0 0 auto}
-  .stage.events .cl.key{width:max(92vw,560px);flex:0 0 auto}
+  .stage.events .cl.cal{width:94vw;flex:0 0 auto}
+  .stage.events .cl.key{width:92vw;flex:0 0 auto}
   .board{aspect-ratio:1/1.25!important;--u2:calc(100cqw/760)}
   .note:nth-child(3n+2),.note:nth-child(3n){margin-top:calc(14*var(--u2))}
   .scroll{justify-content:center}
@@ -291,6 +290,20 @@ body[data-state="open"] .skip{display:none}
   .hint{font-size:clamp(26px,8vw,48px)}
   .ftr-main{gap:22px}.join-btn{width:auto;padding:0 22px}
   .menu-card{left:8px;top:8px;width:min(80vw,330px)}
+  /* phone: calmer sizes so every block fits the screen with room around it */
+  .mbox .tx,.who .tx,.what .tx,.bub .tx,.rules .tx{font-size:clamp(14px,4vw,22px)!important}
+  .cl.logo{width:80vw}.cl.mascots{width:66vw}.cl.house{width:16vw}.cl.tag{width:84vw}
+  .cl.flag{width:28vw}.cl.mtitle{width:60vw}.cl.well{width:60vw}
+  .cl.atitle{width:62vw}.cl.ttl{width:56vw}.cl.mas{width:78vw}.cl.mai{width:40vw}
+  .cl.etitle{width:80vw}.cl.enote{width:76vw}.cl.post{width:52vw}
+  .dbr{display:none}
+  .ftr{padding:28px 20px 20px}.ftr-title{font-size:32px;margin-bottom:6px}
+  .join label{font-size:16px}.join input{height:38px;font-size:15px;margin:4px 0 8px;border-radius:8px}
+  .pw-row input{margin-bottom:0}.join-btn{height:38px;font-size:22px;border-radius:9px;padding:0 18px}
+  .ftr-small{font-size:12px;margin-top:22px}
+  .mission-text p,.mission-text .lnk{line-height:1.7}
+  .lnk .ico{width:1.8em;margin-left:.35em;vertical-align:middle;height:1.2em}
+  .lnk .ico img{transform:translateY(-50%)}
 }
 /* phones: the two memo pop-ups switch to a stacked layout so the text stays readable */
 @media (max-width:699px){
