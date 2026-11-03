@@ -32,8 +32,11 @@
   window.LRFC.place = petalPlaced; window.LRFC.remove = petalRemoved;
   if (skip) { skip.hidden = !C.showSkip; skip.addEventListener("click", () => petalPlaced("")); }
   // NFC sticker link: opening the site with ?petal=... (e.g. https://wheatzzz.github.io/littleredflower/?petal=1)
-  // plays the full opening, as if the petal was placed on the flower, then lets the visitor in.
-  if (new URLSearchParams(location.search).has("petal")) setTimeout(() => petalPlaced(C.petalId || ""), C.nfcDelayMs ?? 1500);
+  // The sticker IS the portal: no waiting, no hint, no skip/connect buttons. The animation starts as soon as the page loads.
+  if (new URLSearchParams(location.search).has("petal")) {
+    body.classList.add("via-nfc");
+    requestAnimationFrame(() => setTimeout(() => petalPlaced(C.petalId || ""), C.nfcDelayMs ?? 0));
+  }
 
   async function listen(port) {
     try {

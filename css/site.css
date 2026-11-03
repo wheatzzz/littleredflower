@@ -43,6 +43,7 @@ body:not([data-state="open"]) #app{height:100vh;overflow:hidden}
 .grp{position:absolute}
 .t,.tx{position:absolute;margin:0;font-size:calc(var(--fs)*100cqw/var(--w))}
 .cl .t.lr,.cl .tx.lr{-webkit-text-stroke:calc(var(--fs)*.02*100cqw/var(--w)) currentColor}
+.hero-t{display:none}   /* phone-only crisp text version of the hero title */
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 .t{white-space:nowrap}
 .tx p{margin:0 0 1.2em}.tx p:last-child{margin:0}
@@ -264,6 +265,8 @@ body[data-state="opening"] .hint,body[data-state="open"] .hint{opacity:0;transit
 .connect:hover,.connect:focus-visible{opacity:1}.connect.connected{display:none}
 .skip{position:fixed;left:1rem;bottom:1rem;z-index:120;font-family:"LR";font-size:1.05rem;background:none;border:0;opacity:.3;cursor:pointer;text-decoration:underline}.skip:hover{opacity:1}
 body[data-state="open"] .skip{display:none}
+/* arriving by NFC sticker: the sticker was the petal, so no hint and no skip/connect buttons */
+body.via-nfc .skip,body.via-nfc .connect,body.via-nfc .hint .h1{display:none!important}
 .debug{position:fixed;left:1rem;bottom:3rem;z-index:130;font:14px/1.3 monospace;color:#fff;background:rgba(35,31,32,.85);padding:.4rem .7rem;border-radius:8px;display:none;max-width:70vw}.debug.on{display:block}
 
 /* ---------- mobile / tablet ---------- */
@@ -297,6 +300,7 @@ body[data-state="open"] .skip{display:none}
   .cl.atitle{width:62vw}.cl.ttl{width:56vw}.cl.mas{width:78vw}.cl.mai{width:40vw}
   .cl.etitle{width:80vw}.cl.enote{width:76vw}.cl.post{width:52vw}
   .dbr{display:none}
+  .cl.logo .hero-t{display:block}.cl.logo img.a:first-child{visibility:hidden}
   .ftr{padding:28px 20px 20px}.ftr-title{font-size:32px;margin-bottom:6px}
   .join label{font-size:16px}.join input{height:38px;font-size:15px;margin:4px 0 8px;border-radius:8px}
   .pw-row input{margin-bottom:0}.join-btn{height:38px;font-size:22px;border-radius:9px;padding:0 18px}
