@@ -79,6 +79,8 @@ body:not([data-state="open"]) #app{height:100vh;overflow:hidden}
 .mas:hover .armw,.mas:focus .armw{animation:wave .8s ease-in-out infinite}
 .mas:hover .armw2,.mas:focus .armw2{animation:wave2 .8s ease-in-out infinite}
 .mai:hover .armm,.mai:focus .armm{animation:wave3 .75s ease-in-out infinite}
+.mai .arml{transform-origin:53% 6%}.mai:hover .arml,.mai:focus .arml{animation:wave4 .75s ease-in-out infinite}
+@keyframes wave4{0%,100%{transform:rotate(0)}30%{transform:rotate(22deg)}70%{transform:rotate(-10deg)}}
 .mas:hover .mtitle2{animation:jig 1s ease-in-out infinite}
 .mas .blossom,.mas .poppy{transition:transform .4s}.mas:hover .blossom{transform:rotate(-1.5deg)}.mas:hover .poppy{transform:rotate(1.5deg)}
 @keyframes wave{0%,100%{transform:rotate(0)}30%{transform:rotate(-22deg)}70%{transform:rotate(10deg)}}
