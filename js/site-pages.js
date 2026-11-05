@@ -111,8 +111,9 @@
       const b = document.createElement("button"); b.className = "ev"; b.setAttribute("aria-label", `${ev.name}, ${ev.wd} ${ev.day} November${past ? " (past)" : ""}. Open details`);
       b.style.cssText = `left:${px(cx, CAL.x, CAL.w)};top:${px(cy, CAL.y, CAL.h)};width:${(cw / CAL.w * 100).toFixed(3)}%;height:${(ch / CAL.h * 100).toFixed(3)}%`;
       const rel = (v, o, t) => ((v - o) / t * 100).toFixed(2) + "%";
-      let h = `<img class="fl" src="img/${ev.art}.svg" alt="" style="left:${rel(fx, cx, cw)};top:${rel(fy, cy, ch)};width:${(fw / cw * 100).toFixed(2)}%">`;
-      if (past) h += `<img src="img/petal.png" alt="" style="left:${rel(fx + fw * 0.433, cx, cw)};top:${rel(fy + fh * 0.578, cy, ch)};width:${(fw * 0.378 / cw * 100).toFixed(2)}%">`;
+      // past events: the missing petal sits BEHIND the flower, so the yellow centre stays visible
+      let h = past ? `<img class="pt" src="img/petal.png" alt="" style="left:${rel(fx + fw * 0.433, cx, cw)};top:${rel(fy + fh * 0.578, cy, ch)};width:${(fw * 0.378 / cw * 100).toFixed(2)}%">` : "";
+      h += `<img class="fl" src="img/${ev.art}.svg" alt="" style="left:${rel(fx, cx, cw)};top:${rel(fy, cy, ch)};width:${(fw / cw * 100).toFixed(2)}%">`;
       b.innerHTML = h; host.appendChild(b);
       const show = () => { tip.textContent = `${ev.name} · ${ev.wd} ${ev.day} Nov${past ? " (done)" : ""}`; tip.style.left = px(cx + cw / 2, CAL.x, CAL.w); tip.style.top = px(cy, CAL.y, CAL.h); tip.classList.add("on"); };
       b.addEventListener("mouseenter", show); b.addEventListener("focus", show);
